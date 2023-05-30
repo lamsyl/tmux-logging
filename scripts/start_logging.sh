@@ -12,7 +12,7 @@ system_osx() {
 }
 
 pipe_pane_ansifilter() {
-	tmux pipe-pane "exec cat - | ansifilter >> $FILE"
+	tmux pipe-pane "exec cat - | ansifilter --ignore-csi >> $FILE"
 }
 
 pipe_pane_sed_osx() {
