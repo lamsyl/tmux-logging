@@ -14,7 +14,7 @@ start_pipe_pane() {
 
 stop_pipe_pane() {
 	tmux pipe-pane
-	display_message "Ended logging to $logging_full_filename"
+	display_message "Ended logging"
 }
 
 # returns a string unique to current pane
