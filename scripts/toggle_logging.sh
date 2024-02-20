@@ -12,13 +12,13 @@ start_pipe_pane() {
 	local suffix=$(tmux display-message -p "%H%M%S")
 	tmux set @suffix "$suffix"
 	tmux rename-window '#{window_name}|#{@suffix}'
-	display_message "Started logging to ${logging_full_filename}"
+	# display_message "Started logging to ${logging_full_filename}"
 }
 
 stop_pipe_pane() {
 	tmux pipe-pane
 	tmux rename-window '#{s/\|.*//:window_name}'
-	display_message "Ended logging"
+	# display_message "Ended logging"
 }
 
 # returns a string unique to current pane
