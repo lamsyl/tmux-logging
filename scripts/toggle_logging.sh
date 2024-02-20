@@ -9,11 +9,13 @@ source "$CURRENT_DIR/shared.sh"
 start_pipe_pane() {
 	local file=$(expand_tmux_format_path "${logging_full_filename}")
 	"$CURRENT_DIR/start_logging.sh" "${file}"
+	tmux rename-window '#{window_name}|'
 	display_message "Started logging to ${logging_full_filename}"
 }
 
 stop_pipe_pane() {
 	tmux pipe-pane
+	tmux rename-window '#{s/\|//:window_name}'
 	display_message "Ended logging"
 }
 
